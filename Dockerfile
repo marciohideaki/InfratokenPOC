@@ -1,15 +1,10 @@
-FROM node:11-alpine
-
-RUN mkdir -p /usr/src/app
-
+FROM node:lts-alpine
+ENV NODE_ENV=production
 WORKDIR /usr/src/app
-
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+RUN npm install --production --silent && mv node_modules ../
 COPY . .
-
-RUN sed -i "s/mongodb:\/\/localhost/mongodb:\/\/mongo/g" common/services/mongoose.service.js
-
-RUN npm install
-
-EXPOSE 3600
-
-CMD ["npm", "run", "start"]
+EXPOSE 3000
+RUN chown -R node /usr/src/app
+USER node
+CMD ["npm", "start"]
