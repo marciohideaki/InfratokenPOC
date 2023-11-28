@@ -42,7 +42,13 @@ DiscoveryRouter
 app.get('/', (req, res) => {
     setTimeout(() => {
       res.send('Server is healthy')
-    }, 100000)
+    }, 100)
+  })
+
+app.get('/ping', (req, res) => {
+    setTimeout(() => {
+      res.send('PONG')
+    }, 100)
   })
 
 function onSignal() {
