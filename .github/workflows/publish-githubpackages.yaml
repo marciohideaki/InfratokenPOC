@@ -2,7 +2,24 @@ name: Publish package to GitHub Packages
 on:
   release:
     types: [published]
-jobs:
+jobs:  
+
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@octocat'
+      - run: npm ci
+
   push_to_registries:
     name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
@@ -12,7 +29,10 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
-      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
