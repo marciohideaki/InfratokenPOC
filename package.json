@@ -1,5 +1,5 @@
 {
-  "name": "infratoken-architecture",
+  "name": "infratoken-service",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marciohideaki/InfratokenPOC"
+    "url": "git+https://github.com/marciohideaki/InfratokenPOC.git"
   },
   "author": "",
   "license": "ISC",
