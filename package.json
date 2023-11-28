@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/makinhs/rest-api-tutorial.git"
+    "url": "git+https://github.com/marciohideaki/InfratokenPOC"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/makinhs/rest-api-tutorial/issues"
+    "url": "https://github.com/marciohideaki/InfratokenPOC/issues"
   },
-  "homepage": "https://github.com/makinhs/rest-api-tutorial#readme",
+  "homepage": "https://github.com/marciohideaki/InfratokenPOC#readme",
   "dependencies": {
     "@godaddy/terminus": "^4.12.1",
     "express": "^4.17.1",
