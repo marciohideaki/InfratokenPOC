@@ -1,47 +1,46 @@
-# REST API Tutorial
+# Exemplo de Pipeline CI/CD para Aplicação Node.js
 
-This sample is published as part of [the corresponding article](https://www.toptal.com/nodejs/secure-rest-api-in-nodejs) at the Toptal Engineering Blog. Visit https://www.toptal.com/developers/blog and subscribe to our newsletter to read great posts!
+Este repositório fornece um exemplo prático e detalhado de como configurar uma pipeline de Integração Contínua/Entrega Contínua (CI/CD) para uma aplicação Node.js que utiliza MongoDB como banco de dados, Mongoose como ODM (Object Data Modeling) e inclui o uso de logotipos.
 
-## Before using
+## Visão Geral
 
-- Please make sure that you have:
- - Node.js installed (https://nodejs.org/)
- - MongoDB installed and running locally (https://www.mongodb.com/)
-   - Using Windows, just open the terminal at where you installed mongo and run `mongod.exe`
- - Run `npm install` or `yarn` in your root project folder
+A aplicação de exemplo é uma aplicação web simples construída em Node.js, que se conecta a um banco de dados MongoDB para realizar operações CRUD básicas. A integração contínua é realizada usando GitHub Actions, e a entrega contínua é gerenciada por um pipeline usando ferramentas como Docker e Kubernetes.
 
-## Usage
+## Pré-requisitos
 
-To run the project, please use a command line the following:
- - `npm start`
-    - It will run the server at port 3600.
+Certifique-se de ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento:
+
+- Node.js: Instalação do Node.js
+- MongoDB: Instalação do MongoDB
+- Docker: Instalação do Docker
+- Kubernetes: Instalação do Kubernetes
+
+## Estrutura do Projeto
+
+O projeto é estruturado da seguinte forma:
+
+/
+|-- src/                  # Código-fonte da aplicação Node.js
+|-- tests/                # Testes automatizados
+|-- .github/              # Configurações do GitHub Actions
+|-- Dockerfile            # Configurações para a criação da imagem Docker
+|-- k8s/                  # Manifestos Kubernetes para implantação
+|-- logo/                 # Logotipos utilizados na aplicação
+|-- .gitignore            # Lista de arquivos/diretórios ignorados pelo Git
+|-- README.md             # Documentação principal do projeto
 
 
-### 2019-09-13 update
+### Configuração da CI/CD
 
-- Refactored mongoose to a proper common service.
-- Added a Dockerfile and docker-compose configuration.
+O processo de CI/CD é gerenciado pelo GitHub Actions. Os passos incluem:
 
-If you are familiar to docker and you have docker installed on your machine and just want to run the project without issues please do:
+1. Teste de Unidade: Executa testes automatizados para garantir a integridade do código.
+2. Construção da Imagem Docker: Cria uma imagem Docker da aplicação.
+3. Implantação no Kubernetes: Implanta a aplicação no Kubernetes usando os manifestos fornecidos.
 
- - docker-compose build
- - docker-compose up
- - It will run the mongodb at port 27017 (for testing purposes only).
- - It will run the server at port 3600.
+Para configurar as variáveis de ambiente necessárias, consulte o arquivo .github/workflows/main.yml.
 
-### 2020-02-01
+## Contribuições
 
-I've created a 2020 version of this project using Typescript. If you might be interested on it, please check the following repository: https://github.com/makinhs/expressjs-api-tutorial
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues, enviar pull requests ou fornecer feedback sobre a estrutura da pipeline CI/CD.
 
-### 2020-09-09
-
-- Updated and pruned dependencies.
-- Fixed deprecation warnings.
-- Leveraged `findOneAndUpdate` to simplify PATCH code.
-- Changed default MongoDB server name to `localhost` to simplify first-time setup.
-- Checked that it works with the latest version of Node.js, 14.9.0.
-
-### 2020-11-14
-
-- Accepted changes in the docker file that was causing MongoDB issues on Windows Subsystem Linux (WSL2) - Ubuntu.
-- If you are new to this project, I highly recommend starting with Typescript first, like we talk about here: https://www.toptal.com/express-js/nodejs-typescript-rest-api-pt-1

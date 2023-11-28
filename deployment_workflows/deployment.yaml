@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: infratokenarchitecture
+spec:
+  selector:
+    matchLabels:
+      app: infratokenarchitecture
+  template:
+    metadata:
+      labels:
+        app: infratokenarchitecture
+    spec:
+      containers:
+      - name: infratokenarchitecture
+        image: ghcr.io/marciohideaki/infratokenarchitecture:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NAME
+          value: 'Matheus'
+          readinessProbe:
+            httpGet:
+            path: /health
+            port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+        
