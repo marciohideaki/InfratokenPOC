@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: infratokenarchitecture
+  name: infratoken-service
 spec:
   selector:
     matchLabels:
-      app: infratokenarchitecture
+      app: infratoken-service
   template:
     metadata:
       labels:
-        app: infratokenarchitecture
+        app: infratoken-service
     spec:
       containers:
-      - name: infratokenarchitecture
-        image: ghcr.io/marciohideaki/infratokenarchitecture:latest
+      - name: infratoken-service
+        image: ghcr.io/marciohideaki/infratokenpoc:latest
         resources:
           limits:
             memory: "128Mi"

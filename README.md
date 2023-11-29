@@ -15,21 +15,6 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu ambiente de dese
 - Docker: Instalação do Docker
 - Kubernetes: Instalação do Kubernetes
 
-## Estrutura do Projeto
-
-O projeto é estruturado da seguinte forma:
-
-/
-|-- src/                  # Código-fonte da aplicação Node.js
-|-- tests/                # Testes automatizados
-|-- .github/              # Configurações do GitHub Actions
-|-- Dockerfile            # Configurações para a criação da imagem Docker
-|-- k8s/                  # Manifestos Kubernetes para implantação
-|-- logo/                 # Logotipos utilizados na aplicação
-|-- .gitignore            # Lista de arquivos/diretórios ignorados pelo Git
-|-- README.md             # Documentação principal do projeto
-
-
 ### Configuração da CI/CD
 
 O processo de CI/CD é gerenciado pelo GitHub Actions. Os passos incluem:

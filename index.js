@@ -69,3 +69,5 @@ server.listen(3000);
 app.listen(config.port, function () {
     console.log('Server has started at port %s', config.port);
 });
+
+module.exports = app;
